@@ -109,7 +109,7 @@ And now you should be able to see the details of your submission at :
 
 # Hardware-Limits
 Your code will be allowed to use a maximum of : 
-* 1 cpu code
+* 1 cpu core
 * upto 8GB of Memory
 * upto 10GB of Disk Space
 * (optional) 1 NVIDIA Titan X (Maxwell Series) GPU
