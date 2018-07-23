@@ -1,4 +1,4 @@
-# mapping-challenge-starter-kit
+# mapping-challenge-starter-kit (Round-2)
 ![CrowdAI-Logo](https://github.com/crowdAI/crowdai/raw/master/app/assets/images/misc/crowdai-logo-smile.svg?sanitize=true)
 
 [![gitter-badge](https://badges.gitter.im/crowdAI/crowdai-mapping-challenge.png)](https://gitter.im/crowdAI/crowdai-mapping-challenge)
@@ -7,6 +7,19 @@ This is a set of instructions to make a submission to the **Round 2** of [crowdA
 In Round 2, Participants are required to submit their code as repositories with [Dockerfiles](https://docs.docker.com/engine/reference/builder/), so that we can build and execute their code as containers. The submitted code will be used to make predictions for an arbitrary number of test images to evaluate its performance. 
 
 The code can be added as **private repository** on [gitlab.crowdai.org](https://gitlab.crowdai.org). And each **tag push** to the repository will be considered as a submission. After every tag push, please refer to the "Issues" section of your repository for the evaluation logs related to your submission. You can find more details about the submission process in the following sections.
+
+
+# Contents
+* [Prerequisites](#prerequisites)
+* [Setup](#setup)
+* [Build Image Locally](#build-image-locally)
+* [Debug Locally](#debug-locally)
+* [Important Concepts](#important-concepts)
+  - [Repository Structure](#repository-structure)
+    - crowdai.json
+    - Dockerfile
+  - [Submission](#submission)
+* [Submission TL;DR](#submission-tl-dr)
 
 # Prerequisites
 * [docker-ce](https://docs.docker.com/install/)
@@ -21,14 +34,14 @@ cp environ.sh.example environ.sh
 source environ.sh
 ```
 
-# Build Image locally
+# Build-Image-Locally
 ```
 cd mapping-challenge-round2-starter-kit
 source environ.sh
 ./build.sh
 ```
 
-# Debug Locally 
+# Debug-Locally 
 ```
 cd mapping-challenge-round2-starter-kit
 # Remember to edit `environ.sh` to point to your local test_images directory
@@ -37,9 +50,9 @@ source environ.sh
 # This should write the final predictions to /tmp/output.json
 ```
 
-# Important Concepts
+# Important-Concepts
 
-## Repository Structure
+## Repository-Structure
 * `crowdai.json`
   Each repository should have a `crowdai.json` with the following content : 
 ```json
@@ -92,7 +105,7 @@ And now you should be able to see the details of your submission at :
 
 **Best of Luck** 
 
-# Submission (TL;DR)
+# Submission-TL-DR
 **Note**: This section assumes, that you have setup your SSH keys on [https://gitlab.crowdai.org](https://gitlab.crowdai.org) by following the instructions [here](https://docs.gitlab.com/ee/gitlab-basics/create-your-ssh-keys.html).
 ```
 # Clone Repository 
