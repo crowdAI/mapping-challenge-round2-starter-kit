@@ -109,7 +109,7 @@ And now you should be able to see the details of your submission at :
 **Note**: This section assumes, that you have setup your SSH keys on [https://gitlab.crowdai.org](https://gitlab.crowdai.org) by following the instructions [here](https://docs.gitlab.com/ee/gitlab-basics/create-your-ssh-keys.html).
 ```
 # Clone Repository 
-git@github.com:crowdAI/mapping-challenge-round2-starter-kit.git
+git clone git@github.com:crowdAI/mapping-challenge-round2-starter-kit.git
 cd mapping-challenge-round2-starter-kit
 
 # Add crowdAI git remote endpoint
