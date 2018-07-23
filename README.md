@@ -61,10 +61,12 @@ source environ.sh
   "grader_id" : "crowdAIMappingChallenge",
   "authors" : ["your-crowdai-username"],
   "description" : "sample description",
-  "license" : "MIT"
+  "license" : "MIT",
+  "gpu":false
 }
 ```
-This is used to map your submission to the said challenge.
+This is used to map your submission to the said challenge. And to specify if your code will need a GPU or not.
+You will be provided with a NVIDIA Titan-X (Maxwell Series) GPU.
 
 * `Dockerfile`
 Each repository should have a valid Dockerfile which should build an image for your code.
