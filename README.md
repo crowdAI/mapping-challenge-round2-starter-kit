@@ -19,6 +19,7 @@ The code can be added as **private repository** on [gitlab.crowdai.org](https://
     - crowdai.json
     - Dockerfile
   - [Submission](#submission)
+* [Hardware Limits](#hardware-limits)
 * [Submission TL;DR](#submission-tl-dr)
 
 # Prerequisites
@@ -65,8 +66,7 @@ source environ.sh
   "gpu":false
 }
 ```
-This is used to map your submission to the said challenge. And to specify if your code will need a GPU or not.
-You will be provided with a NVIDIA Titan-X (Maxwell Series) GPU.
+This is used to map your submission to the said challenge. And to specify if your code will need a GPU or not, and if you specify `true` for the GPU, then you will be provided with a **NVIDIA Titan-X (Maxwell Series) GPU**.
 
 * `Dockerfile`
 Each repository should have a valid Dockerfile which should build an image for your code.
@@ -106,6 +106,13 @@ And now you should be able to see the details of your submission at :
 **NOTE**: Remember to update your username in the link above :wink:
 
 **Best of Luck** 
+
+# Hardware-Limits
+Your code will be allowed to use a maximum of : 
+* 1 cpu code
+* upto 8GB of Memory
+* upto 10GB of Disk Space
+* (optional) 1 NVIDIA Titan X (Maxwell Series) GPU
 
 # Submission-TL-DR
 **Note**: This section assumes, that you have setup your SSH keys on [https://gitlab.crowdai.org](https://gitlab.crowdai.org) by following the instructions [here](https://docs.gitlab.com/ee/gitlab-basics/create-your-ssh-keys.html).
