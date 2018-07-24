@@ -8,6 +8,8 @@ In Round 2, Participants are required to submit their code as repositories with 
 
 The code can be added as **private repository** on [gitlab.crowdai.org](https://gitlab.crowdai.org). And each **tag push** to the repository will be considered as a submission. After every tag push, please refer to the "Issues" section of your repository for the evaluation logs related to your submission. You can find more details about the submission process in the following sections.
 
+The submitted code will be used to build a docker image (as described in [build.sh](build.sh)), which will be orchestrated by our evaluation interface (similar to) as described in [debug.sh](debug.sh). Your code is supposed to accept the path to a folder of images, and write the predicted annotations to a specified file path. 
+**Note** : Your code is expected to only do the inference (and not the training).
 
 # Contents
 * [Prerequisites](#prerequisites)
