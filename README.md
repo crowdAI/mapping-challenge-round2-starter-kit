@@ -98,7 +98,7 @@ the communication protocol. [run.py](run.py) has a simple example implementation
 To make a submission, you will have to create a private repository on [https://gitlab.crowdai.org](https://gitlab.crowdai.org). And you will have to add your SSH Keys to your account by 
 following the instructions [here](https://docs.gitlab.com/ee/gitlab-basics/create-your-ssh-keys.html).   
 
-Then you can create a submission by making a *tag push* to your repository on [https://gitlab.crowdai.org](https://gitlab.crowdai.org).
+Then you can create a submission by making a *tag push* to your repository on [https://gitlab.crowdai.org](https://gitlab.crowdai.org). **Any tag push to your private repository is considered as a submission**
 Then you can add the correct git remote by doing : 
 
 ```
