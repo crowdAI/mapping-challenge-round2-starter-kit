@@ -14,6 +14,7 @@ The code can be added as **private repository** on [gitlab.crowdai.org](https://
 * [Setup](#setup)
 * [Build Image Locally](#build-image-locally)
 * [Debug Locally](#debug-locally)
+* [Changes to your Code](#changes-to-your-code)
 * [Important Concepts](#important-concepts)
   - [Repository Structure](#repository-structure)
     - crowdai.json
@@ -50,6 +51,15 @@ source environ.sh
 ./debug.sh
 # This should write the final predictions to /tmp/output.json
 ```
+## Changes-to-your-code
+The entry point for your code in your container has to be : `/home/crowdai/run.sh`, 
+and you will have access to two Environment Variables :   
+* `CROWDAI_TEST_IMAGES_PATH` : Which holds the path of the folder containing all the test images
+* ` CROWDAI_PREDICTIONS_OUTPUT_PATH` : Path where you are supposed to write your final predictions output (as a JSON). The predictions have to be a list of annotations, the same as what was used in Round 1. An example structure can be found [here](https://github.com/crowdAI/mapping-challenge-starter-kit/blob/master/Random%20Submission.ipynb#Submission-Format)
+
+* The submitted container, needs to communicate with the rest of the evaluation interface by 
+using a simple api, that is abstracted by `crowdai_helpers.py`. Please do not make any changes to 
+the communication protocol. [run.py](run.py) has a simple example implementation of a random submission.
 
 # Important-Concepts
 
@@ -113,6 +123,8 @@ Your code will be allowed to use a maximum of :
 * upto 8GB of Memory
 * upto 10GB of Disk Space
 * (optional) 1 NVIDIA Titan X (Maxwell Series) GPU
+
+**Note** Your evaluation will have a total timeout of 5 hours.
 
 # Submission-TL-DR
 **Note**: This section assumes, that you have setup your SSH keys on [https://gitlab.crowdai.org](https://gitlab.crowdai.org) by following the instructions [here](https://docs.gitlab.com/ee/gitlab-basics/create-your-ssh-keys.html).
