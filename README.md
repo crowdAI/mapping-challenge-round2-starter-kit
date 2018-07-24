@@ -12,7 +12,7 @@ The submitted code will be used to build a docker image (as described in [build.
 **Note** : Your code is expected to only do the inference (and not the training).
 
 # Contents
-* [Prerequisites](#prerequisites)
+* [Prerequisites](#prerequisites-dependencies)
 * [Setup](#setup)
 * [Build Image Locally](#build-image-locally)
 * [Debug Locally](#debug-locally)
@@ -23,14 +23,15 @@ The submitted code will be used to build a docker image (as described in [build.
     - Dockerfile
   - [Submission](#submission)
 * [Hardware Limits](#hardware-limits)
-* [Submission TL;DR](#submission-tl-dr)
+* [Submission TL;DR](#submission-tldr)
 
-# Prerequisites
-* [docker-ce](https://docs.docker.com/install/)
-* [nvidia-docker](https://github.com/NVIDIA/nvidia-docker#quickstart)
+# Prerequisites Dependencies
+* **docker-ce**: Install instructions [here](https://docs.docker.com/install/)
+* **nvidia-docker**: Install instructions [here](https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0))
 
 # Setup
 ```
+# Clone Repository
 git clone git@github.com:crowdAI/mapping-challenge-round2-starter-kit.git
 cd mapping-challenge-round2-starter-kit
 cp environ.sh.example environ.sh
@@ -38,14 +39,14 @@ cp environ.sh.example environ.sh
 source environ.sh
 ```
 
-# Build-Image-Locally
+# Build Image Locally
 ```
 cd mapping-challenge-round2-starter-kit
 source environ.sh
 ./build.sh
 ```
 
-# Debug-Locally 
+# Debug Locally 
 ```
 cd mapping-challenge-round2-starter-kit
 # Remember to edit `environ.sh` to point to your local test_images directory
@@ -63,9 +64,9 @@ and you will have access to two Environment Variables :
 using a simple api, that is abstracted by `crowdai_helpers.py`. Please do not make any changes to 
 the communication protocol. [run.py](run.py) has a simple example implementation of a random submission.
 
-# Important-Concepts
+# Important Concepts
 
-## Repository-Structure
+## Repository Structure
 * `crowdai.json`
   Each repository should have a `crowdai.json` with the following content : 
 ```json
@@ -78,7 +79,9 @@ the communication protocol. [run.py](run.py) has a simple example implementation
   "gpu":false
 }
 ```
-This is used to map your submission to the said challenge. And to specify if your code will need a GPU or not, and if you specify `true` for the GPU, then you will be provided with a **NVIDIA Titan-X (Maxwell Series) GPU**.
+This is used to map your submission to the said challenge.
+
+Please specify if your code will a GPU or not for the evaluation of your model. If you specify `true` for the GPU, a **NVIDIA Titan-X (Maxwell Series) GPU** will be provided and used for the evaluation.
 
 * `Dockerfile`
 Each repository should have a valid Dockerfile which should build an image for your code.
@@ -95,24 +98,28 @@ the communication protocol. [run.py](run.py) has a simple example implementation
 
 
 # Submission 
-To make a submission, you will have to create a private repository on [https://gitlab.crowdai.org](https://gitlab.crowdai.org). And you will have to add your SSH Keys to your account by 
-following the instructions [here](https://docs.gitlab.com/ee/gitlab-basics/create-your-ssh-keys.html).   
+To make a submission, you will have to create a private repository on [https://gitlab.crowdai.org](https://gitlab.crowdai.org).
+
+You will have to add your SSH Keys to your GitLab account by following the instructions [here](https://docs.gitlab.com/ee/gitlab-basics/create-your-ssh-keys.html).
+If you do not have SSH Keys, you will first need to [generate one](https://docs.gitlab.com/ee/ssh/README.html#generating-a-new-ssh-key-pair).
 
 Then you can create a submission by making a *tag push* to your repository on [https://gitlab.crowdai.org](https://gitlab.crowdai.org). **Any tag push to your private repository is considered as a submission**
 Then you can add the correct git remote by doing : 
 
 ```
 cd mapping-challenge-round2-starter-kit
+# Add crowdAI git remote endpoint
 git remote add crowdai git@gitlab.crowdai.org:<YOUR_CROWDAI_USER_NAME>/mapping-challenge-round2-starter-kit.git
 git push crowdai master
+# Update Author
 sed -i 's/spMohanty/<YOUR_CROWDAI_USER_NAME>/g' crowdai.json
 git commit -am "update crowdai.json"
 
-# Create a tag for your submission
+# Create a tag for your submission and push
 git tag -am "v0.1" v0.1
 git push crowdai v0.1
 ```
-And now you should be able to see the details of your submission at : 
+You now should be able to see the details of your submission at : 
 [gitlab.crowdai.org/<YOUR_CROWDAI_USER_NAME>/mapping-challenge-round-2/issues](gitlab.crowdai.org/<YOUR_CROWDAI_USER_NAME>/mapping-challenge-round-2/issues)
 
 **NOTE**: Remember to update your username in the link above :wink:
@@ -128,7 +135,7 @@ Your code will be allowed to use a maximum of :
 
 **Note** Your evaluation will have a total timeout of 5 hours.
 
-# Submission-TL-DR
+# Submission TL;DR
 **Note**: This section assumes, that you have setup your SSH keys on [https://gitlab.crowdai.org](https://gitlab.crowdai.org) by following the instructions [here](https://docs.gitlab.com/ee/gitlab-basics/create-your-ssh-keys.html).
 ```
 # Clone Repository 
@@ -143,7 +150,7 @@ git push crowdai master
 sed -i 's/spMohanty/<YOUR_CROWDAI_USER_NAME>/g' crowdai.json
 git commit -am "Update crowdai.json"
 
-# Create and push submission
+# Create a tag for your submission and push
 git tag -am "version 0.1" v0.1
 git push crowdai v0.1
 echo "Check the status of your submission at : 'https://gitlab.crowdai.org/<YOUR_CROWDAI_USER_NAME>/mapping-challenge-round2-starter-kit/issues"
