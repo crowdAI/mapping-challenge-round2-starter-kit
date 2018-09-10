@@ -85,7 +85,7 @@ Please specify if your code will a GPU or not for the evaluation of your model. 
 
 * `Dockerfile`
 Each repository should have a valid Dockerfile which should build an image for your code.
-The evalutor starts the container from your image by running the entrypoint : 
+The evaluator starts the container from your image by running the entrypoint : 
 ```
 /home/crowdai/run.sh
 ```
